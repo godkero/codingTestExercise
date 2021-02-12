@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+struct criteria{
+    string color;
+    unsigned int digit;
+    unsigned long long power;
+}
+
+vector<criteria> v;
+
+int main(){
+    
+    criteria temp ={"black",0,1};
+    v.push_back(temp);
+    criteria temp ={"brown",1,10};
+    v.push_back(temp);
+    criteria temp ={"red",2,100};
+    v.push_back(temp);
+    criteria temp ={"orange",3,1000};
+    v.push_back(temp);
+    criteria temp ={"yellow",4,10000};
+    v.push_back(temp);
+    criteria temp ={"green",5,100000};
+    v.push_back(temp);
+    criteria temp ={"blue",6,1000000};
+    v.push_back(temp);
+    criteria temp ={"violet",7,10000000};
+    v.push_back(temp);
+    criteria temp ={"grey",8,100000000};
+    v.push_back(temp);
+    criteria temp ={"white",9,1000000000};
+    v.push_back(temp);
+
+
+    
+    
+    
+    string first,second,third;
+    
+    cin>>first>>second>>third;
+
+    vector<criteria>::iterator iter;
+    iter = v.begin();
+
+    
+    
+    return 0;
+    
+    
+}
