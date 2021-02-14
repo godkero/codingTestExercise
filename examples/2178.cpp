@@ -8,8 +8,6 @@ using namespace std;
 
 int findX,findY;
 
-
-const int INF = 9999;
 int pos[101][101];
 bool visited[101][101];
 
@@ -23,7 +21,7 @@ void bfs(int xpos,int ypos){
 int depth = 1;
 
 q.push(make_pair(xpos,ypos));
-
+visited[xpos][ypos] = true;
 int queueSize = q.size();
 
 while(!q.empty()){
@@ -33,27 +31,23 @@ while(!q.empty()){
 
     while(queueSize > 0){
         pair<int , int> r  = q.front();
-        
         queueSize--;   
         q.pop();
-
-        if(visited[r.first][r.second])continue;
-        visited[r.first][r.second] = true;
-
+    
         if(r.first == findX-1 && r.second == findY-1){
             //cout<<"where answer at :";
+         
             cout<<depth<<endl;
             return ;
         }
-
-
         for(int i = 0 ;i<4;i++){
             
-            pair<int, int> temp = make_pair(r.first+op[i][1],r.second+op[i][0]);
-            if(temp.first>= 0 && temp.first <findX && temp.second >= 0 && temp.second <findY && pos[temp.first][temp.second] == 1)
+            pair<int, int> temp = make_pair(r.first+op[i][0],r.second+op[i][1]);
+            if(temp.first < 0 ||temp.first > findX-1 || temp.second <0 || temp.second >findY-1) continue;
+            if(pos[temp.first][temp.second] == 1 && !visited[temp.first][temp.second]){
                 q.push(temp);
-            
-                
+                visited[temp.first][temp.second]= true;
+            }
             }
         }
         depth++;
@@ -118,13 +112,7 @@ int main(){
 
     initVisited();
 
-
-    //int answer = bfs(0,0);
     bfs(0,0);
-    //cout<<answer<<endl;
-
-    // cout<<"end of program"<<endl;
-
 
     return 0;
 }
