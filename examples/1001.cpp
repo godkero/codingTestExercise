@@ -8,8 +8,8 @@ int main(){
     cout.precision(8);
 
 
-    int a,b;
-    cin>>a>>b;
+    int a,b,c;
+    cin>>a>>b>>c;
     cout<<(double)a/(double)b<<endl;
     return 0;
 }
